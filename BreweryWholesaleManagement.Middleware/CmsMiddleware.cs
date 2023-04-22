@@ -1,6 +1,6 @@
 ﻿namespace BreweryWholesaleManagement.Middleware
 {
-    public class Class1
+    public class CmsMiddleware
     {
 
     }

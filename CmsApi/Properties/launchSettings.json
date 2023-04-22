@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "BreweryWholesaleManagement": {
+    "CmsApi": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,

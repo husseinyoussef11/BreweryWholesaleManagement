@@ -1,3 +1,5 @@
+using BreweryWholesaleManagement.Extension;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,15 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+if (Environment.OSVersion.Platform == PlatformID.Unix)
+{
+    builder.WebHost.ConfigureKestrel(options =>
+    {
+        options.ListenAnyIP(builder.Configuration.GetValue<int>("PortLinux"));  
+                                                                                  
+    });//linux
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -15,6 +26,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCmsMiddleware();
 
 app.UseHttpsRedirection();
 

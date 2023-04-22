@@ -8,10 +8,11 @@
 
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\BreweryWholesaleManagement.Extension\BreweryWholesaleManagement.Extension.csproj" />
   </ItemGroup>
 
 </Project>
