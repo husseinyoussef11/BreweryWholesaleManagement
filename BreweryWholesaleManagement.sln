@@ -3,7 +3,31 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryWholesaleManagement", "BreweryWholesaleManagement\BreweryWholesaleManagement.csproj", "{7DE127F7-1D38-41C7-BBA2-3AC37A7EB426}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmsApi", "BreweryWholesaleManagement\CmsApi.csproj", "{7DE127F7-1D38-41C7-BBA2-3AC37A7EB426}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business", "Business", "{ABDCC6E8-076C-45E2-A0BC-4DF8ED9D2FB7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryWholesaleManagement.Business", "BreweryWholesaleManagement.Business\BreweryWholesaleManagement.Business.csproj", "{6FFE53EA-FBD2-4FA5-A854-30D91C73093E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{76C8C4F1-8126-4EB9-AEE0-F0A62FA6C2DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryWholesaleManagement.Data", "BreweryWholesaleManagement.Data\BreweryWholesaleManagement.Data.csproj", "{79FEE732-9E20-4095-8912-89F91443E5AA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extension", "Extension", "{E92865F2-E8EC-4579-98FB-B496D0114898}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryWholesaleManagement.Extension", "BreweryWholesaleManagement.Extension\BreweryWholesaleManagement.Extension.csproj", "{3CDDC2E9-595C-4299-849F-073EE41589ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middleware", "Middleware", "{66589D7D-E2BE-4E92-8011-C2191DEDABDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryWholesaleManagement.Middleware", "BreweryWholesaleManagement.Middleware\BreweryWholesaleManagement.Middleware.csproj", "{35306A8E-5059-494D-8C38-6AD13629C6F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{F419108D-392D-4716-85DC-08866531FC5B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BreweryWholesaleManagement.Models", "BreweryWholesaleManagement.Models\BreweryWholesaleManagement.Models.csproj", "{3A32C4F0-3F9F-423B-9E45-2B76D4F51945}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities", "Utilities", "{4E12C9F2-9477-485B-8136-D1E9B3F13502}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Helpers", "Helpers\Helpers.csproj", "{CF66BBF6-87BB-4F10-8911-C1D9878B3F90}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,9 +39,41 @@ Global
 		{7DE127F7-1D38-41C7-BBA2-3AC37A7EB426}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7DE127F7-1D38-41C7-BBA2-3AC37A7EB426}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7DE127F7-1D38-41C7-BBA2-3AC37A7EB426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FFE53EA-FBD2-4FA5-A854-30D91C73093E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6FFE53EA-FBD2-4FA5-A854-30D91C73093E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6FFE53EA-FBD2-4FA5-A854-30D91C73093E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6FFE53EA-FBD2-4FA5-A854-30D91C73093E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79FEE732-9E20-4095-8912-89F91443E5AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79FEE732-9E20-4095-8912-89F91443E5AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79FEE732-9E20-4095-8912-89F91443E5AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79FEE732-9E20-4095-8912-89F91443E5AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CDDC2E9-595C-4299-849F-073EE41589ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CDDC2E9-595C-4299-849F-073EE41589ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CDDC2E9-595C-4299-849F-073EE41589ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CDDC2E9-595C-4299-849F-073EE41589ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35306A8E-5059-494D-8C38-6AD13629C6F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35306A8E-5059-494D-8C38-6AD13629C6F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35306A8E-5059-494D-8C38-6AD13629C6F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35306A8E-5059-494D-8C38-6AD13629C6F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A32C4F0-3F9F-423B-9E45-2B76D4F51945}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A32C4F0-3F9F-423B-9E45-2B76D4F51945}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A32C4F0-3F9F-423B-9E45-2B76D4F51945}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A32C4F0-3F9F-423B-9E45-2B76D4F51945}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF66BBF6-87BB-4F10-8911-C1D9878B3F90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF66BBF6-87BB-4F10-8911-C1D9878B3F90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF66BBF6-87BB-4F10-8911-C1D9878B3F90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF66BBF6-87BB-4F10-8911-C1D9878B3F90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6FFE53EA-FBD2-4FA5-A854-30D91C73093E} = {ABDCC6E8-076C-45E2-A0BC-4DF8ED9D2FB7}
+		{79FEE732-9E20-4095-8912-89F91443E5AA} = {76C8C4F1-8126-4EB9-AEE0-F0A62FA6C2DD}
+		{3CDDC2E9-595C-4299-849F-073EE41589ED} = {E92865F2-E8EC-4579-98FB-B496D0114898}
+		{35306A8E-5059-494D-8C38-6AD13629C6F4} = {66589D7D-E2BE-4E92-8011-C2191DEDABDF}
+		{3A32C4F0-3F9F-423B-9E45-2B76D4F51945} = {F419108D-392D-4716-85DC-08866531FC5B}
+		{CF66BBF6-87BB-4F10-8911-C1D9878B3F90} = {4E12C9F2-9477-485B-8136-D1E9B3F13502}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E18283C7-70E1-48A0-ABC5-219A0FB17B67}
