@@ -1,0 +1,4 @@
+﻿from this library open package manager
+tyope add-migration
+type InitialCreate 
+type update-database

@@ -1,4 +1,6 @@
+using BreweryWholesaleManagement.Data.Db;
 using BreweryWholesaleManagement.Extension;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,7 +10,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(builder.Configuration.GetSection("DefaultConnection").Value));
 if (Environment.OSVersion.Platform == PlatformID.Unix)
 {
     builder.WebHost.ConfigureKestrel(options =>
