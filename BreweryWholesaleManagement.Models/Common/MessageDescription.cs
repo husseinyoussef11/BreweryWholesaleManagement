@@ -14,5 +14,7 @@ namespace BreweryWholesaleManagement.Models.Common
         public const string CannotAddBeer = "Beer Cannot Be Added";
         public const string BeerAlreadyExist = "Beer Name Already Used";
         public const string Empty = "Empty";
+        public const string AlreadyDeleted = "AlreadyDeleted";
+        public const string InvalidBrewery = "InvalidBrewery";
     }
 }

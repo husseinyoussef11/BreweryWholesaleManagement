@@ -15,7 +15,7 @@ namespace CmsApi.Controllers
             _breweryBusiness = breweryBusiness;
         }
         ///<summary> 
-        ///Working
+        ///IdBrewery Required , will return success or empty
         ///</summary>
         ///<remarks>  
         ///</remarks>
@@ -25,7 +25,7 @@ namespace CmsApi.Controllers
             return _breweryBusiness.ListBeers(request);
         }
         ///<summary> 
-        ///Working
+        ///All fields required , will return beername already used , cannot add beer or success
         ///</summary>
         ///<remarks>  
         ///</remarks>
@@ -35,14 +35,14 @@ namespace CmsApi.Controllers
             return _breweryBusiness.AddBeer(request);
         }
         ///<summary> 
-        ///Working
+        ///Can delete multiple
         ///</summary>
         ///<remarks>  
         ///</remarks>
-        //[HttpPost]
-        //public DeleteBeerResponse DeleteBeer(DeleteBeerRequest request)
-        //{
-        //    return _breweryBusiness.DeleteBeer(request);
-        //}
+        [HttpPost]
+        public DeleteBeerResponse DeleteBeer(DeleteBeerRequest request)
+        {
+            return _breweryBusiness.DeleteBeer(request);
+        }
     }
 }

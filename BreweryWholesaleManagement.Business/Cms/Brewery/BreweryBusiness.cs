@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Linq;
 
 namespace BreweryWholesaleManagement.Business.Cms.Brewery
 {
@@ -52,12 +53,46 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
             return response;
         }
 
+        public DeleteBeerResponse DeleteBeer(DeleteBeerRequest request)
+        {
+            DeleteBeerResponse response = new DeleteBeerResponse();
+
+            if (request.Ids == null || request.Ids.Count < 1)
+            {
+                response.StatusCode.message = MessageDescription.InvalidParameter;
+            }
+            else 
+            {
+                var result = _context.Beers.Where(item => request.Ids.Contains(item.Id)).ToList();
+                if (result != null)
+                {
+                    foreach (Data.DbModels.Beer beer in result)
+                    {
+                        beer.IsActive = false;
+                    }
+                    _context.SaveChanges();
+                    response.StatusCode.message = MessageDescription.Success;
+                }
+                else 
+                {
+                    response.StatusCode.message = MessageDescription.AlreadyDeleted;
+                }
+            }
+            return response;
+        }
+
         public ListBeersResponse ListBeers(ListBeersRequest request)
         {
             ListBeersResponse response = new ListBeersResponse();
 
-            response.Beers = _context.Beers.Where(x => x.IdBrewery == request.IdBrewery).Take(request.pageSize).Skip(request.page).ToList();
-            response.Brewery = _context.Breweries.Where(x => x.Id == request.IdBrewery).First();
+            response.Beers = _context.Beers.Where(x => x.IdBrewery == request.IdBrewery && x.IsActive==true).Take(request.pageSize).Skip(request.page).ToList();
+            response.Brewery = _context.Breweries.Where(x => x.Id == request.IdBrewery).FirstOrDefault();
+
+            if (response.Brewery == null || response.Brewery.Id == null || response.Brewery.Id == Guid.Empty)
+            { 
+                response.StatusCode.message = MessageDescription.InvalidBrewery;
+                return response;
+            }
 
             if (response.Beers.Count < 1)
             {

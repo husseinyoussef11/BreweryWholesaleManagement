@@ -11,5 +11,6 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
     {
         ListBeersResponse ListBeers(ListBeersRequest request);
         AddBeerResponse AddBeer(AddBeerRequest request);
+        DeleteBeerResponse DeleteBeer(DeleteBeerRequest request);
     }
 }
