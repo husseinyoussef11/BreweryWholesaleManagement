@@ -9,8 +9,7 @@ using System.Threading.Tasks;
 namespace BreweryWholesaleManagement.Data.DbModels
 {
     public class Beer
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)] 
+    { 
         [Key]
         public Guid Id { get; set; }
         public string Name { get; set; }
@@ -18,5 +17,6 @@ namespace BreweryWholesaleManagement.Data.DbModels
         public float Price { get; set; }
         public Guid IdBrewery { get; set; } 
         public bool IsActive { get; set; }  
-    }
+        public string Created { get; set; }  
+    } 
 }

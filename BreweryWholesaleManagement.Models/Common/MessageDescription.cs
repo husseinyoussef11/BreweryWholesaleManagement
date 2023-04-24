@@ -11,5 +11,8 @@ namespace BreweryWholesaleManagement.Models.Common
         public const string ServerError = "Oops!! An Error Occured Please Contact Support";
         public const string Success = "Success";
         public const string InvalidParameter = "Invalid Input";
+        public const string CannotAddBeer = "Beer Cannot Be Added";
+        public const string BeerAlreadyExist = "Beer Name Already Used";
+        public const string Empty = "Empty";
     }
 }

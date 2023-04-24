@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 namespace BreweryWholesaleManagement.Data.DbModels
 {
     public class WholesalerStock
-    {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    { 
         [Key]
         public Guid Id { get; set; }
         public Guid IdWholesaler { get; set; }
         public Guid IdBeer { get; set; }
         public int RemainingQuantity { get; set; }
+        public string Created { get; set; }
     }
 }

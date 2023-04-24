@@ -58,13 +58,12 @@ namespace BreweryWholesaleManagement.Middleware
 
                     string _originalContent = new StreamReader(stream).ReadToEnd();
 
-                    MappedDiagnosticsLogicalContext.Set("IdHandset", 0);
                     MappedDiagnosticsLogicalContext.Set("RequestMethod", context.Request.Method);
                     MappedDiagnosticsLogicalContext.Set("RequestContentType", context.Request.ContentType);
                     MappedDiagnosticsLogicalContext.Set("RequestPath", RequestPath);
                     MappedDiagnosticsLogicalContext.Set("RequestBody", _originalContent);
                     MappedDiagnosticsLogicalContext.Set("BasePath", string.Concat(context.Request.Scheme, "://", context.Request.Host.ToUriComponent()) + context.Request.PathBase.ToUriComponent());
-                  
+
 
 
 
@@ -113,7 +112,7 @@ namespace BreweryWholesaleManagement.Middleware
                     stopwatch.Stop();
                     MappedDiagnosticsLogicalContext.Set("ExecutionTime", stopwatch.ElapsedMilliseconds.ToString());
                     MappedDiagnosticsLogicalContext.Set("Response", jsonResponse);
-                  
+
                     if (_ex != null)
                         _logger.LogError($"ERROR: {_ex}");
                     else
