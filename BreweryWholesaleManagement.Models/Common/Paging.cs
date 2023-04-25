@@ -15,6 +15,6 @@ namespace BreweryWholesaleManagement.Models.Common
         [System.ComponentModel.DefaultValue(10)]
         [Range(1, int.MaxValue)]
         public int pageSize { get; set; }
-        public string search { get; set; }
+        public string search { get; set; } = String.Empty;
     }
 }

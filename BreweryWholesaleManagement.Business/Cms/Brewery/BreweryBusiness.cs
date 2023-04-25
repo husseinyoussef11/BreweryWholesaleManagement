@@ -25,7 +25,6 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
         {
             AddBeerResponse response = new AddBeerResponse();
 
-
             Guid ExistingId = _context.Beers.Where(x => x.Name == request.Name && x.IsActive == true).Select(y => y.Id).FirstOrDefault();
             if (ExistingId != null && ExistingId != Guid.Empty)
             {
@@ -50,6 +49,29 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
                 response.StatusCode.message = MessageDescription.Success;
             }
             else { response.StatusCode.message = MessageDescription.CannotAddBeer; }
+            return response;
+        }
+
+        public GlobalResponse CreateMock()
+        {
+            GlobalResponse response = new GlobalResponse();
+            if (_context.Breweries.Count() == 0)
+            {
+                var brewery1 = new Data.DbModels.Brewery { Id =Guid.NewGuid(),Name= "Abbaye de Leffe" };
+                var brewery2 = new Data.DbModels.Brewery { Id =Guid.NewGuid(),Name= "Ghost Moon Brewery" };
+                var breweries = new List<Data.DbModels.Brewery> { brewery1 ,brewery2};
+                _context.Breweries.AddRange(breweries);
+                _context.SaveChanges();
+            }
+            if (_context.Wholesalers.Count() == 0)
+            {
+                var wholesaler1 = new Data.DbModels.Wholesaler { Id = Guid.NewGuid(), Name ="One Market" };
+                var wholesaler2 = new Data.DbModels.Wholesaler { Id = Guid.NewGuid(), Name = "Fast Market" };
+                var wholesalers = new List<Data.DbModels.Wholesaler> { wholesaler1, wholesaler2 };
+                _context.Wholesalers.AddRange(wholesalers);
+                _context.SaveChanges();
+            }
+            response.StatusCode.message = MessageDescription.Success; 
             return response;
         }
 
@@ -87,7 +109,7 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
 
             response.Beers = _context.Beers.Where(x => x.IdBrewery == request.IdBrewery && x.IsActive==true).Take(request.pageSize).Skip(request.page).ToList();
             response.Brewery = _context.Breweries.Where(x => x.Id == request.IdBrewery).FirstOrDefault();
-
+            response.TotalCount = response.Beers.Count();
             if (response.Brewery == null || response.Brewery.Id == null || response.Brewery.Id == Guid.Empty)
             { 
                 response.StatusCode.message = MessageDescription.InvalidBrewery;
@@ -99,6 +121,55 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
                 response.StatusCode.message = MessageDescription.Empty;
             }
             else { response.StatusCode.message = MessageDescription.Success; }
+            return response;
+        }
+
+        public ListBreweriesResponse ListBreweries()
+        {
+            ListBreweriesResponse response = new ListBreweriesResponse();
+            response.Breweries = _context.Breweries.ToList();
+            response.StatusCode.message = MessageDescription.Success;
+            return response;
+        }
+
+        public SellToWholesalerResponse SellToWholesaler(SellToWholesalerRequest request)
+        {
+            SellToWholesalerResponse response = new SellToWholesalerResponse();
+
+            Guid ExistingIdBeer = _context.Beers.Where(x => x.Id == request.IdBeer && x.IsActive == true).Select(y => y.Id).FirstOrDefault();
+            if (ExistingIdBeer == null || ExistingIdBeer == Guid.Empty)
+            {
+                response.StatusCode.message = MessageDescription.InvalidBeer;
+                return response;
+            }
+            Guid ExistingIdWholesaler = _context.Wholesalers.Where(x => x.Id == request.IdWholesaler && x.IsActive == true).Select(y => y.Id).FirstOrDefault();
+            if (ExistingIdWholesaler == null || ExistingIdWholesaler == Guid.Empty)
+            {
+                response.StatusCode.message = MessageDescription.InvalidWholesaler;
+                return response;
+            }
+            var result = _context.WholesalerStocks.Where(x => x.IdBeer == request.IdBeer && x.IdWholesaler == request.IdWholesaler).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.RemainingQuantity = result.RemainingQuantity + request.Quantity;
+                _context.SaveChanges();
+                response.StatusCode.message = MessageDescription.Success;
+            }
+            else
+            {
+                var wholesalerStock = new Data.DbModels.WholesalerStock
+                {
+                    Id = Guid.NewGuid(),
+                    IdBeer=request.IdBeer,
+                    IdWholesaler=request.IdWholesaler,
+                    RemainingQuantity=request.Quantity
+                };
+                _context.WholesalerStocks.Add(wholesalerStock);
+                _context.SaveChanges();
+                response.StatusCode.message = MessageDescription.Success;
+            }
+             
             return response;
         }
     }

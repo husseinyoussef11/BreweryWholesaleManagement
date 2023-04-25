@@ -16,5 +16,7 @@ namespace BreweryWholesaleManagement.Models.Common
         public const string Empty = "Empty";
         public const string AlreadyDeleted = "AlreadyDeleted";
         public const string InvalidBrewery = "InvalidBrewery";
+        public const string InvalidBeer = "Invalid Beer";
+        public const string InvalidWholesaler = "Invalid Wholesaler";
     }
 }

@@ -15,17 +15,37 @@ namespace CmsApi.Controllers
             _breweryBusiness = breweryBusiness;
         }
         ///<summary> 
-        ///IdBrewery Required , will return success or empty
+        ///To be used one time to create wholesalers and breweries
         ///</summary>
         ///<remarks>  
         ///</remarks>
         [HttpPost]
-        public ListBeersResponse ListBeers(ListBeersRequest request)
+        public BreweryWholesaleManagement.Models.Common.GlobalResponse CreateMock()
+        {
+            return _breweryBusiness.CreateMock();
+        }
+        ///<summary> 
+        ///Additional api to get breweries
+        ///</summary>
+        ///<remarks>  
+        ///</remarks>
+        [HttpGet]
+        public ListBreweriesResponse ListBreweries()
+        {
+            return _breweryBusiness.ListBreweries();
+        }
+        ///<summary> 
+        ///IdBrewery Required , will return Success or empty
+        ///</summary>
+        ///<remarks>  
+        ///</remarks>
+        [HttpGet]
+        public ListBeersResponse ListBeers([FromQuery]ListBeersRequest request)
         {
             return _breweryBusiness.ListBeers(request);
         }
         ///<summary> 
-        ///All fields required , will return beername already used , cannot add beer or success
+        ///All fields required , will return beername already used , cannot add beer or Success
         ///</summary>
         ///<remarks>  
         ///</remarks>
@@ -35,14 +55,24 @@ namespace CmsApi.Controllers
             return _breweryBusiness.AddBeer(request);
         }
         ///<summary> 
-        ///Can delete multiple
+        ///Can delete multiple , will return Success or AlreadyDeleted
+        ///</summary>
+        ///<remarks>  
+        ///</remarks>
+        [HttpDelete]
+        public DeleteBeerResponse DeleteBeer(DeleteBeerRequest request)
+        {
+            return _breweryBusiness.DeleteBeer(request);
+        }
+        ///<summary> 
+        ///Update if stock exist or create new stock , will return Success or InvalidBeer or InvalidWholesaler
         ///</summary>
         ///<remarks>  
         ///</remarks>
         [HttpPost]
-        public DeleteBeerResponse DeleteBeer(DeleteBeerRequest request)
+        public SellToWholesalerResponse SellToWholesaler(SellToWholesalerRequest request)
         {
-            return _breweryBusiness.DeleteBeer(request);
+            return _breweryBusiness.SellToWholesaler(request);
         }
     }
 }

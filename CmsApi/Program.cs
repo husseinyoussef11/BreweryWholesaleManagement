@@ -1,4 +1,5 @@
 using BreweryWholesaleManagement.Business.Cms.Brewery;
+using BreweryWholesaleManagement.Business.Cms.Wholesaler;
 using BreweryWholesaleManagement.Data.Db;
 using BreweryWholesaleManagement.Extension;
 using CmsApi.Filter;
@@ -45,6 +46,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, HttpContextAccessor>(); 
 builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(builder.Configuration.GetSection("DefaultConnection").Value));
 builder.Services.AddTransient<IBreweryBusiness, BreweryBusiness>();
+builder.Services.AddTransient<IWholesalerBusiness, WholesalerBusiness>();
 //builder.Services.AddSingleton<MyDbContext>();
 
 builder.Services.Configure<KestrelServerOptions>(options =>
