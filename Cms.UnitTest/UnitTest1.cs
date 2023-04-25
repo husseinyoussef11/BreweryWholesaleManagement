@@ -12,7 +12,15 @@ namespace Cms.UnitTest
         {
             Calls calls = new Calls();
             var responseListBreweries = calls.CallApiListBreweries();
-            //////Call addbeers then check response using assert.
+            //////use idbrewery from response to add beer
+            AddBeerResponse addBeerResponse = new AddBeerResponse();
+            Assert.AreEqual("Success",addBeerResponse.StatusCode.message);
+
+            ////////Check count of beers before add then after add to make sure its added +1
+            ///retreive fields by id to check if same values
+            ///
+
+
         }
     }
 }
