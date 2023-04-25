@@ -34,5 +34,16 @@ namespace CmsApi.Controllers
         {
             return _wholesalerBusiness.ListWholesalers();
         }
+
+        ///<summary> 
+        /// FR5 -------------- A stock should exist to update it
+        ///</summary>
+        ///<remarks>  
+        ///</remarks>
+        [HttpPut]
+        public UpdateWholesalerStockResponse UpdateWholesalerStock(UpdateWholesalerStockRequest request)
+        {
+            return _wholesalerBusiness.UpdateWholesalerStock(request);
+        }
     }
 }

@@ -50,5 +50,23 @@ namespace BreweryWholesaleManagement.Business.Cms.Wholesaler
             return response;
 
         }
+
+        public UpdateWholesalerStockResponse UpdateWholesalerStock(UpdateWholesalerStockRequest request)
+        {
+            UpdateWholesalerStockResponse response =new UpdateWholesalerStockResponse();
+            var result = _context.WholesalerStocks.Where(x => x.IdBeer == request.IdBeer && x.IdWholesaler == request.IdWholesaler).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.RemainingQuantity =  request.Quantity;
+                _context.SaveChanges();
+                response.StatusCode.message = MessageDescription.Success;
+            }
+            else 
+            {
+                response.StatusCode.message = MessageDescription.InvalidParameter;
+            }
+            return response;
+        }
     }
 }

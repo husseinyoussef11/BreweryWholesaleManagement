@@ -35,7 +35,7 @@ namespace CmsApi.Controllers
             return _breweryBusiness.ListBreweries();
         }
         ///<summary> 
-        ///IdBrewery Required , will return Success or empty
+        /// FR1 --------IdBrewery Required , will return Success or empty
         ///</summary>
         ///<remarks>  
         ///</remarks>
@@ -45,7 +45,7 @@ namespace CmsApi.Controllers
             return _breweryBusiness.ListBeers(request);
         }
         ///<summary> 
-        ///All fields required , will return beername already used , cannot add beer or Success
+        /// FR2 ---------All fields required , will return beername already used , cannot add beer or Success
         ///</summary>
         ///<remarks>  
         ///</remarks>
@@ -55,7 +55,7 @@ namespace CmsApi.Controllers
             return _breweryBusiness.AddBeer(request);
         }
         ///<summary> 
-        ///Can delete multiple , will return Success or AlreadyDeleted
+        /// FR3 ---------- Can delete multiple , will return Success or AlreadyDeleted
         ///</summary>
         ///<remarks>  
         ///</remarks>
@@ -65,7 +65,7 @@ namespace CmsApi.Controllers
             return _breweryBusiness.DeleteBeer(request);
         }
         ///<summary> 
-        ///Update if stock exist or create new stock , will return Success or InvalidBeer or InvalidWholesaler
+        /// FR4 ------------ Update if stock exist or create new stock , will return Success or InvalidBeer or InvalidWholesaler
         ///</summary>
         ///<remarks>  
         ///</remarks>

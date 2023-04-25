@@ -11,5 +11,6 @@ namespace BreweryWholesaleManagement.Business.Cms.Wholesaler
     {
         ListWholesalerStockResponse ListWholesalerStock(ListWholesalerStockRequest request);
         ListWholesalersResponse ListWholesalers();
+        UpdateWholesalerStockResponse UpdateWholesalerStock(UpdateWholesalerStockRequest request);
     }
 }
