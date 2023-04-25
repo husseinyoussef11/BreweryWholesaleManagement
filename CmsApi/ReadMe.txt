@@ -7,3 +7,8 @@ In order to use this project please use below:
 * if no data in both additional apis , use createmock in brewerycontroller
 * in swagger apis are marked by function as document ex : FR1 , FR2 ...
 
+
+note: there should be a login and usermanagement for wholesalers , breweries and clients then use token from jwt to identify the logged in one and use it in apis,
+but sadly i dont have enough time to apply the full senario . 
+
+Thank you in advance

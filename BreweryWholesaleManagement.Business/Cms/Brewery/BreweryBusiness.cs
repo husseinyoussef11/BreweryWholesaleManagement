@@ -65,8 +65,8 @@ namespace BreweryWholesaleManagement.Business.Cms.Brewery
             }
             if (_context.Wholesalers.Count() == 0)
             {
-                var wholesaler1 = new Data.DbModels.Wholesaler { Id = Guid.NewGuid(), Name ="One Market" };
-                var wholesaler2 = new Data.DbModels.Wholesaler { Id = Guid.NewGuid(), Name = "Fast Market" };
+                var wholesaler1 = new Data.DbModels.Wholesaler { Id = Guid.NewGuid(), Name ="Order Pros" };
+                var wholesaler2 = new Data.DbModels.Wholesaler { Id = Guid.NewGuid(), Name = "Store Supply" };
                 var wholesalers = new List<Data.DbModels.Wholesaler> { wholesaler1, wholesaler2 };
                 _context.Wholesalers.AddRange(wholesalers);
                 _context.SaveChanges();

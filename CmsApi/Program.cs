@@ -1,4 +1,5 @@
 using BreweryWholesaleManagement.Business.Cms.Brewery;
+using BreweryWholesaleManagement.Business.Cms.Client;
 using BreweryWholesaleManagement.Business.Cms.Wholesaler;
 using BreweryWholesaleManagement.Data.Db;
 using BreweryWholesaleManagement.Extension;
@@ -47,6 +48,7 @@ builder.Services.AddSingleton<Microsoft.AspNetCore.Http.IHttpContextAccessor, Ht
 builder.Services.AddDbContext<MyDbContext>(options => options.UseSqlServer(builder.Configuration.GetSection("DefaultConnection").Value));
 builder.Services.AddTransient<IBreweryBusiness, BreweryBusiness>();
 builder.Services.AddTransient<IWholesalerBusiness, WholesalerBusiness>();
+builder.Services.AddTransient<IClientBusiness, ClientBusiness>();
 //builder.Services.AddSingleton<MyDbContext>();
 
 builder.Services.Configure<KestrelServerOptions>(options =>
